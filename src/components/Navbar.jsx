@@ -15,30 +15,6 @@ export default function NavBar() {
   }, []);
 
   const classes = useStyles();
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem></MenuItem>
-      <MenuItem></MenuItem>
-      <MenuItem></MenuItem>
-    </Menu>
-  );
 
   return (
     <div className={classes.grow}>
@@ -58,7 +34,6 @@ export default function NavBar() {
           <div className={classes.grow} />
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
     </div>
   );
 }
