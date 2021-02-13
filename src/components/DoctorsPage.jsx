@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -9,6 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import { toggleDoctorApproval } from "../controllers/doctor";
+import { UserContext } from "../context/UserContext";
 
 const useStyles = makeStyles({
   table: {
@@ -29,10 +30,11 @@ const useStyles = makeStyles({
 });
 
 export default function DoctorsPage({ doctors }) {
+  const { getDoctors } = useContext(UserContext);
   const classes = useStyles();
 
   const handleClick = (doctorId) => {
-    toggleDoctorApproval(doctorId);
+    toggleDoctorApproval(doctorId).then((res) => getDoctors());
   };
 
   return (
