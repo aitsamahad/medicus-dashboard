@@ -6,10 +6,11 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../src/theme";
 import ContextProvider from "../src/context/UserContext";
 import "../styles/globals.css";
-import Layout from "../src/layouts/Layout";
 import Router from "next/router";
 import NProgress from "nprogress";
 import ScrollToTop from "../src/utils/ScrollToTop";
+import NavBar from "../src/components/NavBar";
+import Footer from "../src/components/Footer";
 
 // NProgress configuration and setup
 NProgress.configure({ showSpinner: false });
@@ -37,59 +38,33 @@ export default function MyApp(props) {
     }
   }, []);
 
-  if (router.pathname === "/") {
-    return (
-      <React.Fragment>
-        <Head>
-          <title>My page</title>
-          <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width"
-          />
-          <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
-          <link
-            rel="stylesheet"
-            href="https://unpkg.com/nprogress@0.2.0/nprogress.css"
-          />
-        </Head>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <ContextProvider>
+  return (
+    <React.Fragment>
+      <Head>
+        <title>My page</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+        <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/nprogress@0.2.0/nprogress.css"
+        />
+      </Head>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <ContextProvider>
+          <ScrollToTop>
+            <NavBar />
             <Component {...pageProps} />
-          </ContextProvider>
-        </ThemeProvider>
-      </React.Fragment>
-    );
-  } else {
-    return (
-      <React.Fragment>
-        <Head>
-          <title>My page</title>
-          <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width"
-          />
-          <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
-          <link
-            rel="stylesheet"
-            href="https://unpkg.com/nprogress@0.2.0/nprogress.css"
-          />
-        </Head>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <ContextProvider>
-            <ScrollToTop>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            </ScrollToTop>
-          </ContextProvider>
-        </ThemeProvider>
-      </React.Fragment>
-    );
-  }
+            <Footer />
+          </ScrollToTop>
+        </ContextProvider>
+      </ThemeProvider>
+    </React.Fragment>
+  );
 }
 
 MyApp.propTypes = {
