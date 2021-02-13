@@ -9,7 +9,7 @@ import "../styles/globals.css";
 import Router from "next/router";
 import NProgress from "nprogress";
 import ScrollToTop from "../src/utils/ScrollToTop";
-// import NavBar from "../src/components/NavBar";
+import NavBar from "../src/components/NavBar";
 import Footer from "../src/components/Footer";
 
 // NProgress configuration and setup
@@ -57,7 +57,7 @@ export default function MyApp(props) {
         <CssBaseline />
         <ContextProvider>
           <ScrollToTop>
-            {/* <NavBar /> */}
+            <NavBar />
             <Component {...pageProps} />
             <Footer />
           </ScrollToTop>
