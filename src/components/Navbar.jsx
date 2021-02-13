@@ -11,7 +11,8 @@ export default function NavBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" className={classes.menuColor}>
+      <h2>Nav</h2>
+      {/* <AppBar position="static" className={classes.menuColor}>
         <Toolbar className={classes.stretch}>
           <IconButton
             edge="start"
@@ -26,7 +27,7 @@ export default function NavBar() {
           </Typography>
           <div className={classes.grow} />
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
     </div>
   );
 }
