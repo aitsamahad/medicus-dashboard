@@ -2,6 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../src/theme";
 import ContextProvider from "../src/context/UserContext";
@@ -9,8 +13,9 @@ import "../styles/globals.css";
 import Router from "next/router";
 import NProgress from "nprogress";
 import ScrollToTop from "../src/utils/ScrollToTop";
-import NavBar from "../src/components/NavBar";
 import Footer from "../src/components/Footer";
+import useStyles from "../src/components/styles/navbar";
+import SlideMenu from "../src/components/SlideMenu";
 
 // NProgress configuration and setup
 NProgress.configure({ showSpinner: false });
@@ -38,6 +43,8 @@ export default function MyApp(props) {
     }
   }, []);
 
+  const classes = useStyles();
+
   return (
     <React.Fragment>
       <Head>
@@ -57,7 +64,24 @@ export default function MyApp(props) {
         <CssBaseline />
         <ContextProvider>
           <ScrollToTop>
-            <NavBar />
+            <div className={classes.grow}>
+              <AppBar position="static" className={classes.menuColor}>
+                <Toolbar className={classes.stretch}>
+                  <IconButton
+                    edge="start"
+                    className={classes.menuButton}
+                    color="inherit"
+                    aria-label="open drawer"
+                  >
+                    <SlideMenu />
+                  </IconButton>
+                  <Typography className={classes.title} variant="h6" noWrap>
+                    MEDICUS
+                  </Typography>
+                  <div className={classes.grow} />
+                </Toolbar>
+              </AppBar>
+            </div>
             <Component {...pageProps} />
             <Footer />
           </ScrollToTop>
