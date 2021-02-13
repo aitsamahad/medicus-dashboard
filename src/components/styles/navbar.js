@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(8),
     // marginLeft: theme.spacing(2),
-    color: "black",
+    color: "black !important",
     [theme.breakpoints.down("md")]: {
       marginRight: theme.spacing(2),
       marginLeft: theme.spacing(2),
@@ -28,11 +28,11 @@ const useStyles = makeStyles((theme) => ({
       display: "block",
     },
     cursor: "pointer",
-    letterSpacing: 8,
+    letterSpacing: "8px !important",
     mixBlendMode: "difference",
-    background: "#fff",
-    borderRadius: 4,
-    paddingLeft: 10,
+    background: "#fff !important",
+    borderRadius: "4px !important",
+    paddingLeft: "10px !important",
 
     "& >div": {
       marginTop: "10px !important",
@@ -101,8 +101,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(11),
   },
   menuColor: {
-    background: "#FFF",
-    color: "black",
+    background: "#FFF !important",
+    color: "black !important",
   },
   menuHeadings: {
     fontSize: 15,
