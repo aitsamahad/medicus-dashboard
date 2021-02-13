@@ -6,7 +6,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../src/theme";
 import ContextProvider from "../src/context/UserContext";
 import "../styles/globals.css";
-import Layout from "../src/layouts/Layout";
 import Router from "next/router";
 import NProgress from "nprogress";
 import ScrollToTop from "../src/utils/ScrollToTop";
